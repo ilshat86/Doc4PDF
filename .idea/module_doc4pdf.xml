@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_doc4pdf" default="compile.module.doc4pdf">
+  <dirname property="module.doc4pdf.basedir" file="${ant.file.module_doc4pdf}"/>
+  
+  <property name="module.jdk.home.doc4pdf" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.doc4pdf" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.doc4pdf" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.doc4pdf" value="-encoding UTF-8 -source 5 -target 1.5 ${compiler.args}"/>
+  
+  <property name="doc4pdf.output.dir" value="${module.doc4pdf.basedir}/../target/classes"/>
+  <property name="doc4pdf.testoutput.dir" value="${module.doc4pdf.basedir}/../target/test-classes"/>
+  
+  <path id="doc4pdf.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="doc4pdf.module.production.classpath">
+    <path refid="${module.jdk.classpath.doc4pdf}"/>
+    <path refid="library.maven:_fr.opensagres.xdocreport:org.apache.poi.xwpf.converter.pdf:1.0.6.classpath"/>
+    <path refid="library.maven:_fr.opensagres.xdocreport:fr.opensagres.xdocreport.itext.extension:1.0.6.classpath"/>
+    <path refid="library.maven:_com.lowagie:itext:2.1.7.classpath"/>
+    <path refid="library.maven:_fr.opensagres.xdocreport:org.apache.poi.xwpf.converter.core:1.0.6.classpath"/>
+    <path refid="library.maven:_org.apache.poi:ooxml-schemas:1.1.classpath"/>
+    <path refid="library.maven:_org.apache.xmlbeans:xmlbeans:2.3.0.classpath"/>
+    <path refid="library.maven:_stax:stax-api:1.0.1.classpath"/>
+    <path refid="library.maven:_fr.opensagres.xdocreport:org.apache.poi.xwpf.converter.xhtml:1.0.6.classpath"/>
+    <path refid="library.maven:_org.apache.poi:poi-ooxml:3.10-final.classpath"/>
+    <path refid="library.maven:_org.apache.poi:poi:3.10-final.classpath"/>
+    <path refid="library.maven:_commons-codec:commons-codec:1.5.classpath"/>
+    <path refid="library.maven:_org.apache.poi:poi-ooxml-schemas:3.10-final.classpath"/>
+    <path refid="library.maven:_dom4j:dom4j:1.6.1.classpath"/>
+    <path refid="library.maven:_xml-apis:xml-apis:1.0.b2.classpath"/>
+  </path>
+  
+  <path id="doc4pdf.runtime.production.module.classpath">
+    <pathelement location="${doc4pdf.output.dir}"/>
+    <path refid="library.maven:_fr.opensagres.xdocreport:org.apache.poi.xwpf.converter.pdf:1.0.6.classpath"/>
+    <path refid="library.maven:_fr.opensagres.xdocreport:fr.opensagres.xdocreport.itext.extension:1.0.6.classpath"/>
+    <path refid="library.maven:_com.lowagie:itext:2.1.7.classpath"/>
+    <path refid="library.maven:_fr.opensagres.xdocreport:org.apache.poi.xwpf.converter.core:1.0.6.classpath"/>
+    <path refid="library.maven:_org.apache.poi:ooxml-schemas:1.1.classpath"/>
+    <path refid="library.maven:_org.apache.xmlbeans:xmlbeans:2.3.0.classpath"/>
+    <path refid="library.maven:_stax:stax-api:1.0.1.classpath"/>
+    <path refid="library.maven:_fr.opensagres.xdocreport:org.apache.poi.xwpf.converter.xhtml:1.0.6.classpath"/>
+    <path refid="library.maven:_org.apache.poi:poi-ooxml:3.10-final.classpath"/>
+    <path refid="library.maven:_org.apache.poi:poi:3.10-final.classpath"/>
+    <path refid="library.maven:_commons-codec:commons-codec:1.5.classpath"/>
+    <path refid="library.maven:_org.apache.poi:poi-ooxml-schemas:3.10-final.classpath"/>
+    <path refid="library.maven:_dom4j:dom4j:1.6.1.classpath"/>
+    <path refid="library.maven:_xml-apis:xml-apis:1.0.b2.classpath"/>
+  </path>
+  
+  <path id="doc4pdf.module.classpath">
+    <path refid="${module.jdk.classpath.doc4pdf}"/>
+    <pathelement location="${doc4pdf.output.dir}"/>
+    <path refid="library.maven:_fr.opensagres.xdocreport:org.apache.poi.xwpf.converter.pdf:1.0.6.classpath"/>
+    <path refid="library.maven:_fr.opensagres.xdocreport:fr.opensagres.xdocreport.itext.extension:1.0.6.classpath"/>
+    <path refid="library.maven:_com.lowagie:itext:2.1.7.classpath"/>
+    <path refid="library.maven:_fr.opensagres.xdocreport:org.apache.poi.xwpf.converter.core:1.0.6.classpath"/>
+    <path refid="library.maven:_org.apache.poi:ooxml-schemas:1.1.classpath"/>
+    <path refid="library.maven:_org.apache.xmlbeans:xmlbeans:2.3.0.classpath"/>
+    <path refid="library.maven:_stax:stax-api:1.0.1.classpath"/>
+    <path refid="library.maven:_fr.opensagres.xdocreport:org.apache.poi.xwpf.converter.xhtml:1.0.6.classpath"/>
+    <path refid="library.maven:_org.apache.poi:poi-ooxml:3.10-final.classpath"/>
+    <path refid="library.maven:_org.apache.poi:poi:3.10-final.classpath"/>
+    <path refid="library.maven:_commons-codec:commons-codec:1.5.classpath"/>
+    <path refid="library.maven:_org.apache.poi:poi-ooxml-schemas:3.10-final.classpath"/>
+    <path refid="library.maven:_dom4j:dom4j:1.6.1.classpath"/>
+    <path refid="library.maven:_xml-apis:xml-apis:1.0.b2.classpath"/>
+  </path>
+  
+  <path id="doc4pdf.runtime.module.classpath">
+    <pathelement location="${doc4pdf.testoutput.dir}"/>
+    <pathelement location="${doc4pdf.output.dir}"/>
+    <path refid="library.maven:_fr.opensagres.xdocreport:org.apache.poi.xwpf.converter.pdf:1.0.6.classpath"/>
+    <path refid="library.maven:_fr.opensagres.xdocreport:fr.opensagres.xdocreport.itext.extension:1.0.6.classpath"/>
+    <path refid="library.maven:_com.lowagie:itext:2.1.7.classpath"/>
+    <path refid="library.maven:_fr.opensagres.xdocreport:org.apache.poi.xwpf.converter.core:1.0.6.classpath"/>
+    <path refid="library.maven:_org.apache.poi:ooxml-schemas:1.1.classpath"/>
+    <path refid="library.maven:_org.apache.xmlbeans:xmlbeans:2.3.0.classpath"/>
+    <path refid="library.maven:_stax:stax-api:1.0.1.classpath"/>
+    <path refid="library.maven:_fr.opensagres.xdocreport:org.apache.poi.xwpf.converter.xhtml:1.0.6.classpath"/>
+    <path refid="library.maven:_org.apache.poi:poi-ooxml:3.10-final.classpath"/>
+    <path refid="library.maven:_org.apache.poi:poi:3.10-final.classpath"/>
+    <path refid="library.maven:_commons-codec:commons-codec:1.5.classpath"/>
+    <path refid="library.maven:_org.apache.poi:poi-ooxml-schemas:3.10-final.classpath"/>
+    <path refid="library.maven:_dom4j:dom4j:1.6.1.classpath"/>
+    <path refid="library.maven:_xml-apis:xml-apis:1.0.b2.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.doc4pdf">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.doc4pdf">
+    <patternset refid="excluded.from.module.doc4pdf"/>
+  </patternset>
+  
+  <path id="doc4pdf.module.sourcepath">
+    <dirset dir="${module.doc4pdf.basedir}/../../Doc4PDF">
+      <include name="src/main/java"/>
+      <include name="src/main/resources"/>
+    </dirset>
+  </path>
+  
+  <path id="doc4pdf.module.test.sourcepath">
+    <dirset dir="${module.doc4pdf.basedir}/../../Doc4PDF">
+      <include name="src/test/java"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.doc4pdf" depends="compile.module.doc4pdf.production,compile.module.doc4pdf.tests" description="Compile module Doc4PDF"/>
+  
+  <target name="compile.module.doc4pdf.production" depends="register.custom.compilers" description="Compile module Doc4PDF; production classes">
+    <mkdir dir="${doc4pdf.output.dir}"/>
+    <javac2 destdir="${doc4pdf.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.doc4pdf}/javac">
+      <compilerarg line="${compiler.args.doc4pdf}"/>
+      <bootclasspath refid="doc4pdf.module.bootclasspath"/>
+      <classpath refid="doc4pdf.module.production.classpath"/>
+      <src refid="doc4pdf.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.doc4pdf"/>
+    </javac2>
+    
+    <copy todir="${doc4pdf.output.dir}">
+      <fileset dir="${module.doc4pdf.basedir}/../src/main/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.doc4pdf.basedir}/../src/main/resources">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.doc4pdf.tests" depends="register.custom.compilers,compile.module.doc4pdf.production" description="compile module Doc4PDF; test classes" unless="skip.tests">
+    <mkdir dir="${doc4pdf.testoutput.dir}"/>
+    <javac2 destdir="${doc4pdf.testoutput.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.doc4pdf}/javac">
+      <compilerarg line="${compiler.args.doc4pdf}"/>
+      <bootclasspath refid="doc4pdf.module.bootclasspath"/>
+      <classpath refid="doc4pdf.module.classpath"/>
+      <src refid="doc4pdf.module.test.sourcepath"/>
+      <patternset refid="excluded.from.compilation.doc4pdf"/>
+    </javac2>
+    
+    <copy todir="${doc4pdf.testoutput.dir}">
+      <fileset dir="${module.doc4pdf.basedir}/../src/test/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="clean.module.doc4pdf" description="cleanup module">
+    <delete dir="${doc4pdf.output.dir}"/>
+    <delete dir="${doc4pdf.testoutput.dir}"/>
+  </target>
+</project>

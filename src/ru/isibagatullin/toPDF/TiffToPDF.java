@@ -1,12 +1,12 @@
 package ru.isibagatullin.toPDF;
 
-import com.itextpdf.text.Rectangle;
+import com.itextpdf.text.*;
+import com.itextpdf.text.pdf.BaseFont;
 import com.itextpdf.text.pdf.RandomAccessFileOrArray;
 import com.itextpdf.text.pdf.codec.TiffImage;
 import java.io.FileOutputStream;
-import com.itextpdf.text.Image;
+
 import com.itextpdf.text.pdf.PdfWriter;
-import com.itextpdf.text.Document;
 
 public class TiffToPDF {
 
@@ -31,7 +31,18 @@ public class TiffToPDF {
             TifftoPDF.close();
         }
         catch (Exception i1){
-            i1.printStackTrace();
+            Document document = new Document();
+            PdfWriter.getInstance(document, new FileOutputStream(pdfPath));
+
+            document.open();
+            final BaseFont bf = BaseFont.createFont("c:\\Windows\\Fonts\\tahoma.ttf", BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
+
+            //Font font = FontFactory.getFont(FontFactory.COURIER, 16, BaseColor.RED);
+            Font font = new Font(bf, 16,0, BaseColor.RED);
+            document.add(new Paragraph("Ошибка преобразования файла в pdf. ", font));
+            document.add(new Paragraph(i1.toString(), font));
+            document.add(new Paragraph("Обратитесь к разработчику приложения!", font));
+            document.close();
         }
     }
 }
